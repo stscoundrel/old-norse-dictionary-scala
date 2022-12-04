@@ -50,10 +50,31 @@
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>2.13.10</version>
+  </dependency>
   </dependencies>
 
+  
   <build>
+    <sourceDirectory>src/main/scala</sourceDirectory>
+    <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>4.8.0</version>
+        <executions>
+          <execution>
+              <goals>
+                  <goal>compile</goal>
+                  <goal>testCompile</goal>
+              </goals>
+          </execution>
+      </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <version>3.2.0</version>
