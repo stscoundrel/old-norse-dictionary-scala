@@ -12,7 +12,7 @@ As Maven dependency.
 ```xml
 <dependency>
   <groupId>io.github.stscoundrel</groupId>
-  <artifactId>old-norse-dictionary</artifactId>
+  <artifactId>oldnorse</artifactId>
   <version>0.2.1</version> <!-- Note! Check latest release number -->
 </dependency>
 ```
