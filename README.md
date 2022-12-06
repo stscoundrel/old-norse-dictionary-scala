@@ -17,7 +17,7 @@ As Maven dependency.
 </dependency>
 ```
 
-For alternative install methods, see the [Maven Central Repo](https://search.maven.org/artifact/io.github.stscoundrel/old-norse-dictionary)
+For alternative install methods, see the [Maven Central Repo](https://search.maven.org/artifact/io.github.stscoundrel/oldnorse)
 
 ### Usage
 
