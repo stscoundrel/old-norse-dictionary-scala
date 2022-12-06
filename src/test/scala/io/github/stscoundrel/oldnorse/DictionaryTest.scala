@@ -1,4 +1,4 @@
-package io.github.stscoundrel.oldnorsedictionary
+package io.github.stscoundrel.oldnorse
 
 import org.junit.Test
 import org.junit.Assert._

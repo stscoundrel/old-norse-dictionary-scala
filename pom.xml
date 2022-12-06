@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.stscoundrel</groupId>
-  <artifactId>old-norse-dictionary</artifactId>
+  <artifactId>oldnorse</artifactId>
   <version>0.1.0</version>
 
   <name>old-norse-dictionary</name>

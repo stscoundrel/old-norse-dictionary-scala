@@ -29,7 +29,8 @@ Dictionary defaults to "no markup".
 
 ```scala
 
-import io.github.stscoundrel.oldnorsedictionary
+import io.github.stscoundrel.oldnorse.Dictionary
+import io.github.stscoundrel.oldnorse.DictionaryEntry
 
 val dictionary = new Dictionary()
 
