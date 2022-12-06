@@ -13,7 +13,7 @@ As Maven dependency.
 <dependency>
   <groupId>io.github.stscoundrel</groupId>
   <artifactId>old-norse-dictionary</artifactId>
-  <version>0.1.0</version> <!-- Note! Check latest release number -->
+  <version>0.2.0</version> <!-- Note! Check latest release number -->
 </dependency>
 ```
 
