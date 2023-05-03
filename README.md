@@ -48,8 +48,6 @@ println(markupResult(14).definitions(0))     // adj. greedy, voracious, Hkv. 2. 
 
 ```
 
-Should you use this library with Java, you may need to make some minor adjustements. For example, Java may consider fields case class DictionaryEntry to be "private". You can get around this by calling them as getters, like `myEntry.headword()` instead of `myEntry.headword`
-
 Individual words are returned in format of:
 
 ```scala
@@ -58,6 +56,12 @@ Individual words are returned in format of:
     definitions: Array[String]
 }
 ```
+
+
+#### Java interop
+
+Should you use this library with Java, you may need to make some minor adjustements. For example, Java may consider fields case class DictionaryEntry to be "private". You can get around this by calling them as getters, like `myEntry.headword()` instead of `myEntry.headword`
+
 
 ### About Cleasby & Vigfusson Dictionary
 
