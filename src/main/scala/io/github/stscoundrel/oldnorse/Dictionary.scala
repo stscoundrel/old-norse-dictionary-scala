@@ -4,9 +4,15 @@ import com.google.gson.Gson
 
 import java.io.InputStreamReader
 
+sealed trait DictionaryLocation
+
+case object NoMarkupLocation extends DictionaryLocation
+
+case object MarkupLocation extends DictionaryLocation
+
 class Dictionary {
-  private lazy val entries: Array[DictionaryEntry] = readDictionary(DictionaryLocation.NoMarkup)
-  private lazy val markupEntries: Array[DictionaryEntry] = readDictionary(DictionaryLocation.Markup)
+  private lazy val entries: Array[DictionaryEntry] = readDictionary(NoMarkupLocation)
+  private lazy val markupEntries: Array[DictionaryEntry] = readDictionary(MarkupLocation)
 
   def getMarkupDictionary(): Array[DictionaryEntry] = markupEntries
 
@@ -14,7 +20,7 @@ class Dictionary {
 
   def getNoMarkupDictionary(): Array[DictionaryEntry] = entries
 
-  private def readDictionary(location: DictionaryLocation.Value): Array[DictionaryEntry] = {
+  private def readDictionary(location: DictionaryLocation): Array[DictionaryEntry] = {
     val inputStream = getClass.getResourceAsStream(getDictionaryPath(location))
     val reader = new InputStreamReader(inputStream)
 
@@ -25,13 +31,9 @@ class Dictionary {
     result
   }
 
-  private def getDictionaryPath(location: DictionaryLocation.Value): String = location match {
-    case DictionaryLocation.NoMarkup => "/no-markup.json"
-    case DictionaryLocation.Markup => "/markup.json"
+  private def getDictionaryPath(location: DictionaryLocation): String = location match {
+    case NoMarkupLocation => "/no-markup.json"
+    case MarkupLocation => "/markup.json"
   }
 
-  private object DictionaryLocation extends Enumeration {
-    type DictionaryLocation = Value
-    val NoMarkup, Markup = Value
-  }
 }
