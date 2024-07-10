@@ -1,24 +1,18 @@
 package io.github.stscoundrel.oldnorse
 
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.io.Reader
-
 import com.google.gson.Gson
 
+import java.io.InputStreamReader
+
 class Dictionary {
-  private var entries: Array[DictionaryEntry] = _
-  private var markupEntries: Array[DictionaryEntry] = _
+  private lazy val entries: Array[DictionaryEntry] = readDictionary(DictionaryLocation.NoMarkup)
+  private lazy val markupEntries: Array[DictionaryEntry] = readDictionary(DictionaryLocation.Markup)
 
-  object DictionaryLocation extends Enumeration {
-    type DictionaryLocation = Value
-    val NoMarkup, Markup = Value
-  }
+  def getMarkupDictionary(): Array[DictionaryEntry] = markupEntries
 
-  private def getDictionaryPath(location: DictionaryLocation.Value): String = location match {
-    case DictionaryLocation.NoMarkup => "/no-markup.json"
-    case DictionaryLocation.Markup => "/markup.json"
-  }
+  def getDictionary(): Array[DictionaryEntry] = getNoMarkupDictionary
+
+  def getNoMarkupDictionary(): Array[DictionaryEntry] = entries
 
   private def readDictionary(location: DictionaryLocation.Value): Array[DictionaryEntry] = {
     val inputStream = getClass.getResourceAsStream(getDictionaryPath(location))
@@ -31,21 +25,13 @@ class Dictionary {
     result
   }
 
-  def getMarkupDictionary(): Array[DictionaryEntry] = {
-    if (entries == null) {
-      entries = readDictionary(DictionaryLocation.Markup)
-    }
-
-    entries
+  private def getDictionaryPath(location: DictionaryLocation.Value): String = location match {
+    case DictionaryLocation.NoMarkup => "/no-markup.json"
+    case DictionaryLocation.Markup => "/markup.json"
   }
 
-  def getNoMarkupDictionary(): Array[DictionaryEntry] = {
-    if (markupEntries == null) {
-      markupEntries = readDictionary(DictionaryLocation.NoMarkup)
-    }
-
-    markupEntries
+  private object DictionaryLocation extends Enumeration {
+    type DictionaryLocation = Value
+    val NoMarkup, Markup = Value
   }
-
-  def getDictionary(): Array[DictionaryEntry] = getNoMarkupDictionary()
 }
