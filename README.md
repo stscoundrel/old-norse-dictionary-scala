@@ -63,6 +63,16 @@ Individual words are returned in format of:
 Should you use this library with Java, you may need to make some minor adjustements. For example, Java may consider fields case class DictionaryEntry to be "private". You can get around this by calling them as getters, like `myEntry.headword()` instead of `myEntry.headword`
 
 
+### Other language ports
+
+The same library exists for other widely used programming languages.
+
+- [Node.js](https://github.com/stscoundrel/cleasby-vigfusson-dictionary)
+- [Python](https://github.com/stscoundrel/old-norse-dictionary-py)
+- [Rust](https://github.com/stscoundrel/cleasby-vigfusson-dictionary-rs)
+- [C# / .NET](https://github.com/stscoundrel/old-norse-dictionary-cs)
+- [Go](https://github.com/stscoundrel/old-norse-dictionary-go)
+
 ### About Cleasby & Vigfusson Dictionary
 
 "Icelandic-English" dictionary was started by Richard Cleasby and finished by Gudbrand Vigfusson. It was published in 1874, which leads to there being many public domain versions of the book available.
